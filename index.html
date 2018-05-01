@@ -29,14 +29,33 @@
         <h3>Price: </h3>
       </div> -->
     </section>
-
-
+<section>
+  <form onsubmit="app.controllers.homeController.addHome(event)">
+    <input type="text" name="street" placeholder="street">
+    <input type="text" name="city" placeholder="city">
+    <input type="number" name="yearBuilt" placeholder="year built">
+    <input type="number" name="price" placeholder="price">
+    <input type="url" name="img" placeholder="Image">
+    <button type="submit">SUBMIT</button>
+  </form>
+</section>
+<section id="homes">
+  <!-- <div>
+    <img src="//placehold.it/100x100" alt="">
+    <h3>Street: </h3>
+    <h3>City: </h3>
+    <h3>Year Built: </h3>
+    <h3>Price: </h3>
+  </div> -->
+</section>
 
     <!-- SERVICES -->
     <script src="app/CarService.js"></script>
+    <script src="app/HomeService.js"></script>
 
     <!-- CONTROLLERS -->
     <script src="app/CarController.js"></script>
+    <script src="app/HomeController.js"></script>
 
     <!-- INITIALIZE APP -->
     <script src="app/app.js"></script>
