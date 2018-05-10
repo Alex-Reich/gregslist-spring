@@ -18,8 +18,8 @@ function HouseController() {
             <h3>Year: ${house.year}</h3>
             <h3>Levels: ${house.levels}
             <h3>Price: ${house.price}</h3>
-            <button onclick="app.controllers.houseController.deleteHouse('${house._id}')">Remove House Listing</button>
             <h4>Description: ${house.description}</h3>
+            <button onclick="app.controllers.houseController.deleteHouse('${house._id}')">Remove House Listing</button>
             <button onclick="app.controllers.houseController.discountHouse('${house._id}', ${house.price})">Deep Discount</button>
         </div>
         </div>

@@ -46,4 +46,18 @@ function JobService(cb) {
             loadJobs()
         })
     }
+    this.decreaseRate = function decreaseRate(id, rate) {
+        $.ajax({
+            method: "PUT",
+            url: baseUrl + "/" + id,
+            contentType: "application/JSON",
+            data: JSON.stringify({
+                rate: rate / 1.5
+            })
+        }).then(res => {
+            loadJobs()
+        })
+    }
+
+
 }

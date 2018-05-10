@@ -12,8 +12,9 @@ function JobController() {
             <h1>Hours: ${job.hours}</h1>
             <h1>Rate: ${job.rate}</h1>
             <h1>Description: ${job.description}</h1>
-            <button onclick="app.controllers.jobController.deleteJob('${job._id}')">Job Filled</button>
+            <button onclick="app.controllers.jobController.deleteJob('${job._id}')">Job Filled (Remove)</button>
             <button onclick="app.controllers.jobController.increaseRate('${job._id}',${job.rate})">Increase Rate</button>
+            <button onclick="app.controllers.jobController.decreaseRate('${job._id}',${job.rate})">Decrease Rate</button>
             `
         }
         document.getElementById("jobs").innerHTML = template
@@ -38,5 +39,8 @@ function JobController() {
     }
     this.increaseRate = function increaseRate(id, rate) {
         jobService.increaseRate(id, rate)
+    }
+    this.decreaseRate = function decreaseRate(id, rate) {
+        jobService.decreaseRate(id, rate)
     }
 }
