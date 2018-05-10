@@ -1,35 +1,35 @@
-function CarController(){
-//CONTROLLERS ARE RESPONSIBLE FOR 
+function CarController() {
+  //CONTROLLERS ARE RESPONSIBLE FOR 
   //INTERACTING WITH THE DOM/USER
   //COMMUNICATION WITH THE SERVICE
 
   //PRIVATE
-  var carService = new CarService()
+  var carService = new CarService(drawCars)
 
-  function drawCars(){
-    var cars = carService.getCars()
+  function drawCars(cars) {
     var template = ''
     for (let i = 0; i < cars.length; i++) {
       const car = cars[i];
       template += `
-      <div>
-        <img src="${car.img}" alt="">
-        <h3>Make: ${car.make}</h3>
-        <h3>Model: ${car.model}</h3>
-        <h3>Year: ${car.year}</h3>
-        <h3>Price: ${car.price}</h3>
-      </div>
-    ` 
+        <div>
+          <img src="${car.imgUrl}" alt="">
+          <h3>Make: ${car.make}</h3>
+          <h3>Model: ${car.model}</h3>
+          <h3>Year: ${car.year}</h3>
+          <h3>Price: ${car.price}</h3>
+          <button onclick="app.controllers.carController.discountCar('${car._id}',${car.price})">Discount</button>
+          <p>Description: ${car.description}</p>
+          <button onclick="app.controllers.carController.deleteCar('${car._id}')">Delete</button>
+        </div>
+      `
     }
     document.getElementById('cars').innerHTML = template
   }
 
-drawCars()
 
   //PUBLIC
-  this.addCar = function addCar(e){
+  this.addCar = function addCar(e) {
     e.preventDefault();
-    debugger
     var data = e.target
     var newCar = {
       img: data.img.value,
@@ -39,10 +39,14 @@ drawCars()
       price: data.price.value
     }
     carService.addCar(newCar)
-    drawCars()
+    data.reset()
   }
-
-
+  this.deleteCar = function deleteCar(id) {
+    carService.deleteCar(id)
+  }
+  this.discountCar = function discountCar(id, price) {
+    carService.discountCar(id, price)
+  }
 
 
 
