@@ -52,6 +52,19 @@
     <h3>Price: </h3>
   </div> -->
   </section>
+  <section>
+    <form onsubmit="app.controllers.jobController.addJob(event)">
+      <input type="text" name="company" placeholder="company">
+      <input type="text" name="jobTitle" placeholder="jobTitle">
+      <input type="number" name="hours" placeholder="hours">
+      <input type="number" name="rate" placeholder="rate">
+      <input type="text" name="description" placeholder="description">
+      <button type="submit">SUBMIT</button>
+    </form>
+  </section>
+  <section id="jobs">
+
+  </section>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -59,10 +72,12 @@
   <!-- SERVICES -->
   <script src="app/CarService.js"></script>
   <script src="app/HouseService.js"></script>
+  <script src="app/JobService.js"></script>
 
   <!-- CONTROLLERS -->
   <script src="app/CarController.js"></script>
   <script src="app/HouseController.js"></script>
+  <script src="app/JobController.js"></script>
 
   <!-- INITIALIZE APP -->
   <script src="app/app.js"></script>
