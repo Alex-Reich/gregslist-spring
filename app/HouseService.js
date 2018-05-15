@@ -1,6 +1,6 @@
 function HouseService(cb) {
     //This is where the data lives
-    var baseUrl = "https://bcw-gregslist.herokuapp.com/api/houses"
+    var baseUrl = "http://localhost:3000/api/houses"
 
     //PRIVATE
     var houses = []
@@ -19,7 +19,7 @@ function HouseService(cb) {
 
     function loadHouses() {
         $.get(baseUrl).then(res => {
-            cb(res.data)
+            cb(res)
         })
     }
     loadHouses()

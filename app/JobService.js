@@ -1,5 +1,5 @@
 function JobService(cb) {
-    var baseUrl = "https://bcw-gregslist.herokuapp.com/api/jobs"
+    var baseUrl = "http://localhost:3000/api/jobs"
 
     var jobs = []
 
@@ -14,7 +14,7 @@ function JobService(cb) {
     
     function loadJobs() {
         $.get(baseUrl).then(res => {
-            cb(res.data)
+            cb(res)
         })
     }
     loadJobs()

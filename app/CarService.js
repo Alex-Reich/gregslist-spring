@@ -1,6 +1,6 @@
 function CarService(cb) {
   //This is where the data lives
-  var baseUrl = "https://bcw-gregslist.herokuapp.com/api/cars"
+  var baseUrl = "http://localhost:3000/api/cars"
   //PRIVATE
   var cars = []
 
@@ -17,7 +17,8 @@ function CarService(cb) {
 
   function loadCars() {
     $.get(baseUrl).then(res => {
-      cb(res.data)
+      console.log(res)
+      cb(res)
     })
   }
   loadCars()
